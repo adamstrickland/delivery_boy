@@ -79,5 +79,11 @@ module DeliveryBoy
         @messages[topic].clone
       end
     end
+
+    def topics
+      @delivery_lock.synchronize do
+        @messages.keys.clone
+      end
+    end
   end
 end
